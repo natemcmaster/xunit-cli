@@ -11,12 +11,6 @@ variables:
 pool:
   vmImage: windows-2019
 steps:
-- task: UseDotNet@2
-  displayName: Install .NET Core 3 SDK
-  inputs:
-    version: '3.x'
-    packageType: sdk
-    includePreviewVersions: true
 - task: DotNetCoreCLI@2
   displayName: dotnet pack
   inputs:
