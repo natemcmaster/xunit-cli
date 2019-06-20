@@ -7,11 +7,13 @@
     <PackageId>xunit-cli</PackageId>
     <ToolCommandName>xunit</ToolCommandName>
     <VersionPrefix>0.1.$([MSBuild]::ValueOrDefault($(BUILD_COUNTER), 0))</VersionPrefix>
+    <ProjectUrl>https://github.com/natemcmaster/xunit-cli</ProjectUrl>
     <RepositoryUrl>https://github.com/natemcmaster/xunit-cli</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageDescription>A global .NET Core tool for running xunit tests.
 
-Usage: xunit [assemblyPath] [additionalArgs]
+Installation: dotnet tool install -g xunit-cli
+Usage: xunit &lt;assemblyPath&gt; [additionalArgs]
     </PackageDescription>
   </PropertyGroup>
 

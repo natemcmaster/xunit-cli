@@ -6,7 +6,7 @@ A global .NET Core command line tool for running xunit tests.
 
 Installation:
 ```
-dotnet tool install -g xunit --add-source https://nuget.pkg.github.com/natemcmaster/index.json
+dotnet tool install -g xunit-cli --add-source https://nuget.pkg.github.com/natemcmaster/index.json
 ```
 
 Usage:
