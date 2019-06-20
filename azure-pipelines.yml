@@ -1,0 +1,31 @@
+trigger:
+- master
+
+pr:
+- '*'
+
+variables:
+- name: BUILD_COUNTER
+  value: $[counter('buildnumber', 0)]
+
+pool:
+  vmImage: windows-2019
+steps:
+- task: UseDotNet@2
+  displayName: Install .NET Core 3 SDK
+  inputs:
+    version: '3.x'
+    packageType: sdk
+    includePreviewVersions: true
+- task: DotNetCoreCLI@2
+  displayName: dotnet pack
+  inputs:
+    command: pack
+    configuration: Release
+    packDirectory: $(build.artifactStagingDirectory)
+- task: PublishBuildArtifacts@1
+  displayName: Publish build artifacts
+  inputs:
+    PathtoPublish: $(build.artifactStagingDirectory)
+    ArtifactName: packages
+

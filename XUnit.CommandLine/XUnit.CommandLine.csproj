@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <PackAsTool>true</PackAsTool>
+    <PackageId>xunit-cli</PackageId>
+    <ToolCommandName>xunit</ToolCommandName>
+    <VersionPrefix>0.1.$([MSBuild]::ValueOrDefault($(BUILD_COUNTER), 0))</VersionPrefix>
+    <RepositoryUrl>https://github.com/natemcmaster/xunit-cli</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageDescription>A global .NET Core tool for running xunit tests.
+
+Usage: xunit [assemblyPath] [additionalArgs]
+    </PackageDescription>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.runner.console" Version="2.4.1" GeneratePackagePath="true" ExcludeAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(Pkgxunit_runner_console)/tools/netcoreapp2.0/**/*">
+      <LinkBase>tools/netcoreapp2.0/</LinkBase>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Include="$(Pkgxunit_runner_console)/tools/net472/**/*">
+      <LinkBase>tools/net472/</LinkBase>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
