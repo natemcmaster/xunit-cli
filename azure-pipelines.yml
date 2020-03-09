@@ -1,10 +1,11 @@
 trigger:
-- master
+  - master
 
 pr:
 - '*'
 
 variables:
+- group: AzureKeyVault
 - name: BUILD_COUNTER
   value: $[counter('buildnumber', 0)]
 
@@ -12,15 +13,14 @@ pool:
   vmImage: windows-latest
 steps:
 - task: UseDotNet@2
-  displayName: Install .NET Core 3.1
+  displayName: Install .NET Core 3.1 SDK
   inputs:
-    version: 3.1.x
-- task: DotNetCoreCLI@2
-  displayName: dotnet pack
-  inputs:
-    command: pack
-    configuration: Release
-    packDirectory: $(build.artifactStagingDirectory)
-- publish: $(build.artifactStagingDirectory)
+    version: '3.1.x'
+    packageType: sdk
+- powershell: ./build.ps1 -ci
+  displayName: Invoke build.ps1
+  env:
+    KEYVAULT_CLIENT_SECRET: $(kv-access-token)
+- publish: artifacts/
   artifact: Packages
   displayName: Publish artifacts

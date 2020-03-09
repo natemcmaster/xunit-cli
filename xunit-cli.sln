@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnit.CommandLine", "XUnit.CommandLine\XUnit.CommandLine.csproj", "{AE945C5C-72F7-4661-B167-E793F135372B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnit.CommandLine", "src\XUnit.CommandLine\XUnit.CommandLine.csproj", "{AE945C5C-72F7-4661-B167-E793F135372B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
