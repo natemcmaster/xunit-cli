@@ -6,6 +6,7 @@
     <PackAsTool>true</PackAsTool>
     <PackageId>xunit-cli</PackageId>
     <ToolCommandName>xunit</ToolCommandName>
+    <RollForward>LatestMajor</RollForward>
     <VersionPrefix>0.1.$([MSBuild]::ValueOrDefault($(BUILD_COUNTER), 0))</VersionPrefix>
     <ProjectUrl>https://github.com/natemcmaster/xunit-cli</ProjectUrl>
     <RepositoryUrl>https://github.com/natemcmaster/xunit-cli</RepositoryUrl>
@@ -33,5 +34,9 @@ Usage: xunit &lt;assemblyPath&gt; [additionalArgs]
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
   </ItemGroup>
+
+  <Target Name="SetBuildNumber" BeforeTargets="PrepareForBuild">
+    <Message Importance="High" Text="##vso[build.updatebuildnumber]$(PackageVersion)" />
+  </Target>
 
 </Project>

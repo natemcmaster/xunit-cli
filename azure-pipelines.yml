@@ -9,17 +9,18 @@ variables:
   value: $[counter('buildnumber', 0)]
 
 pool:
-  vmImage: windows-2019
+  vmImage: windows-latest
 steps:
+- task: UseDotNet@2
+  displayName: Install .NET Core 3.1
+  inputs:
+    version: 3.1.x
 - task: DotNetCoreCLI@2
   displayName: dotnet pack
   inputs:
     command: pack
     configuration: Release
     packDirectory: $(build.artifactStagingDirectory)
-- task: PublishBuildArtifacts@1
-  displayName: Publish build artifacts
-  inputs:
-    PathtoPublish: $(build.artifactStagingDirectory)
-    ArtifactName: packages
-
+- publish: $(build.artifactStagingDirectory)
+  artifact: Packages
+  displayName: Publish artifacts
