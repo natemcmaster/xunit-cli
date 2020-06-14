@@ -1,6 +1,6 @@
 # xunit-cli
 
-[![Build Status](https://dev.azure.com/natemcmaster/github/_apis/build/status/xunit-cli?branchName=master)](https://dev.azure.com/natemcmaster/github/_build/latest?definitionId=8&branchName=master)
+[![Build Status](https://dev.azure.com/natemcmaster/github/_apis/build/status/xunit-cli?branchName=main)](https://dev.azure.com/natemcmaster/github/_build/?definitionId=8)
 
 [![NuGet][nuget-badge] ![NuGet Downloads][nuget-download-badge]][nuget]
 
