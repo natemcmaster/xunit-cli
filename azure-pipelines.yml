@@ -5,7 +5,6 @@ pr:
 - '*'
 
 variables:
-- group: AzureKeyVault
 - name: BUILD_COUNTER
   value: $[counter('buildnumber', 0)]
 
@@ -24,8 +23,6 @@ steps:
     packageType: sdk
 - powershell: ./build.ps1 -ci
   displayName: Invoke build.ps1
-  env:
-    KEYVAULT_CLIENT_SECRET: $(kv-access-token)
 - publish: artifacts/
   artifact: Packages
   displayName: Publish artifacts
