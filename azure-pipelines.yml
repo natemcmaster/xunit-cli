@@ -12,9 +12,9 @@ pool:
   vmImage: windows-latest
 steps:
 - task: UseDotNet@2
-  displayName: Install .NET Core 3.1 SDK
+  displayName: Install .NET 5 SDK
   inputs:
-    version: '3.1.x'
+    version: '5.0.x'
     packageType: sdk
 - task: UseDotNet@2
   displayName: Install .NET Core 2.1 SDK
